@@ -1,7 +1,7 @@
 """
-Author:
-Date:
-Description:
+Author: Tomas Dal Farra
+Date: 01/19/2023
+Description: Defines a class where to handle a dictionary database within a file with win32file
 https://github.com/Kloke93/database_sync
 """
 from win32file import GENERIC_READ, GENERIC_WRITE, FILE_SHARE_READ, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, CREATE_ALWAYS

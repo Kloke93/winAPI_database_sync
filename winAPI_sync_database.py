@@ -1,7 +1,7 @@
 """
-Author:
-Date:
-Description:
+Author: Tomas Dal Farra
+Date: 01/19/2023
+Description: Synchronized database class with win32event
 https://github.com/Kloke93/database_sync
 """
 from win32event import CreateMutex, CreateSemaphore, ReleaseMutex, ReleaseSemaphore

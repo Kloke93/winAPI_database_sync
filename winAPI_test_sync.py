@@ -1,7 +1,7 @@
 """
 Author: Tomas Dal Farra
-Date:
-Description:
+Date: 01/19/2023
+Description: Test file for threading and multiprocessing synchronized with win api. Modified from:
 https://github.com/Kloke93/database_sync
 """
 from winAPI_sync_database import SyncDataBase
@@ -16,7 +16,7 @@ import os
 class TestThreadDB(unittest.TestCase):
     """ Class to test synchronized database in threading mode """
     test_fname = "testfile.bin"
-    reps = 500
+    reps = 5000
 
     def set_value(self, key, val):
         """ Test set_value method """
@@ -102,7 +102,7 @@ class TestThreadDB(unittest.TestCase):
 class TestProcessDB(unittest.TestCase):
     """ Class to test synchronized database in multiprocessing mode """
     test_fname = "testfile.bin"
-    reps = 50
+    reps = 5000
 
     # In processes methods does not execute unittest asserts within themselves
     @staticmethod
@@ -155,6 +155,7 @@ class TestProcessDB(unittest.TestCase):
         """ Tests writing without competition """
         proc = multiprocessing.Process(target=self.set_value, name="proc_ws", args=(40, 4002))
         proc.start()
+        proc.join()
         self.test_dict[40] = 4002
         self.assertEqual(self.get_database_dict(), self.test_dict)
 
